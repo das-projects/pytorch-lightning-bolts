@@ -1,0 +1,206 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.10.12
+    code_path: code/pl_bolts/models/self_supervised/moco/moco2_module.py
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.8.5
+accelerator:
+  desc: null
+  value: None
+accumulate_grad_batches:
+  desc: null
+  value: 1
+amp_backend:
+  desc: null
+  value: native
+amp_level:
+  desc: null
+  value: O2
+auto_lr_find:
+  desc: null
+  value: false
+auto_scale_batch_size:
+  desc: null
+  value: false
+auto_select_gpus:
+  desc: null
+  value: false
+automatic_optimization:
+  desc: null
+  value: None
+base_encoder:
+  desc: null
+  value: resnet18
+batch_size:
+  desc: null
+  value: 256
+benchmark:
+  desc: null
+  value: false
+check_val_every_n_epoch:
+  desc: null
+  value: 1
+checkpoint_callback:
+  desc: null
+  value: true
+data_dir:
+  desc: null
+  value: ./
+dataset:
+  desc: null
+  value: cifar10
+default_root_dir:
+  desc: null
+  value: None
+deterministic:
+  desc: null
+  value: false
+distributed_backend:
+  desc: null
+  value: None
+emb_dim:
+  desc: null
+  value: 128
+enable_pl_optimizer:
+  desc: null
+  value: true
+encoder_momentum:
+  desc: null
+  value: 0.999
+fast_dev_run:
+  desc: null
+  value: false
+flush_logs_every_n_steps:
+  desc: null
+  value: 100
+gpus:
+  desc: null
+  value: 1
+gradient_clip_val:
+  desc: null
+  value: 0
+learning_rate:
+  desc: null
+  value: 0.03
+limit_test_batches:
+  desc: null
+  value: 1.0
+limit_train_batches:
+  desc: null
+  value: 1.0
+limit_val_batches:
+  desc: null
+  value: 1.0
+log_every_n_steps:
+  desc: null
+  value: 50
+log_gpu_memory:
+  desc: null
+  value: None
+logger:
+  desc: null
+  value: true
+max_epochs:
+  desc: null
+  value: 1000
+max_steps:
+  desc: null
+  value: None
+meta_dir:
+  desc: null
+  value: .
+min_epochs:
+  desc: null
+  value: 1
+min_steps:
+  desc: null
+  value: None
+momentum:
+  desc: null
+  value: 0.9
+move_metrics_to_cpu:
+  desc: null
+  value: false
+num_negatives:
+  desc: null
+  value: 65536
+num_nodes:
+  desc: null
+  value: 1
+num_processes:
+  desc: null
+  value: 1
+num_sanity_val_steps:
+  desc: null
+  value: 2
+num_workers:
+  desc: null
+  value: 8
+overfit_batches:
+  desc: null
+  value: 0.0
+plugins:
+  desc: null
+  value: None
+precision:
+  desc: null
+  value: 32
+prepare_data_per_node:
+  desc: null
+  value: true
+process_position:
+  desc: null
+  value: 0
+profiler:
+  desc: null
+  value: None
+progress_bar_refresh_rate:
+  desc: null
+  value: 1
+reload_dataloaders_every_epoch:
+  desc: null
+  value: false
+replace_sampler_ddp:
+  desc: null
+  value: true
+resume_from_checkpoint:
+  desc: null
+  value: None
+softmax_temperature:
+  desc: null
+  value: 0.07
+sync_batchnorm:
+  desc: null
+  value: false
+terminate_on_nan:
+  desc: null
+  value: false
+tpu_cores:
+  desc: null
+  value: _gpus_arg_default
+track_grad_norm:
+  desc: null
+  value: -1
+truncated_bptt_steps:
+  desc: null
+  value: None
+use_mlp:
+  desc: null
+  value: false
+val_check_interval:
+  desc: null
+  value: 1.0
+weight_decay:
+  desc: null
+  value: 0.0001
+weights_save_path:
+  desc: null
+  value: None
+weights_summary:
+  desc: null
+  value: top
