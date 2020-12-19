@@ -17,6 +17,7 @@ import pytorch_lightning as pl
 import torch
 import torch.nn.functional as F
 from torch import nn
+import psutil
 
 from pl_bolts.utils.warnings import warn_missing_pkg
 
@@ -34,6 +35,11 @@ from pl_bolts.models.self_supervised.moco.transforms import (
     Moco2TrainImagenetTransforms,
     Moco2TrainSTL10Transforms,
 )
+
+import wandb
+from pytorch_lightning.loggers import WandbLogger
+
+wandb.login()
 
 
 class MocoV2(pl.LightningModule):
@@ -319,7 +325,8 @@ class MocoV2(pl.LightningModule):
         parser = ArgumentParser(parents=[parent_parser], add_help=False)
         parser.add_argument('--base_encoder', type=str, default='resnet18')
         parser.add_argument('--emb_dim', type=int, default=128)
-        parser.add_argument('--num_workers', type=int, default=8)
+        parser.add_argument('--num_workers', type=int, default=psutil.cpu_count())
+        parser.add_argument('--gpus', type=int, default=-1)
         parser.add_argument('--num_negatives', type=int, default=65536)
         parser.add_argument('--encoder_momentum', type=float, default=0.999)
         parser.add_argument('--softmax_temperature', type=float, default=0.07)
@@ -329,8 +336,10 @@ class MocoV2(pl.LightningModule):
         parser.add_argument('--data_dir', type=str, default='./')
         parser.add_argument('--dataset', type=str, default='cifar10', help='cifar10, stl10, imagenet2012')
         parser.add_argument('--batch_size', type=int, default=256)
+        parser.add_argument('--max_epochs', type=int, default=1000)
         parser.add_argument('--use_mlp', action='store_true')
         parser.add_argument('--meta_dir', default='.', type=str, help='path to meta.bin for imagenet')
+        parser.add_argument('--logger', default=WandbLogger(project="MocoV2"))
 
         return parser
 
@@ -387,6 +396,7 @@ def cli_main():
 
     trainer = pl.Trainer.from_argparse_args(args)
     trainer.fit(model, datamodule=datamodule)
+    wandb.finish()
 
 
 if __name__ == '__main__':
